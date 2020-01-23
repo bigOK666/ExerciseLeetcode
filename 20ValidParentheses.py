@@ -3,7 +3,14 @@ class Solution:
         #define the pairs
         map = {"(":")", "[":"]", "{":"}"}
         stack = []
-        for item in str:
-            if map.has_key(item):
+        for item in s:
+            if item in map.keys():
                 stack.append(item)
-            else if 
+            elif item in map.values():
+                left_pair = list(map.keys())[list(map.values()).index(item)]
+                if stack[-1] == left_pair:
+                    stack.pop()
+                else:
+                    return False
+        if len(stack) == 0:
+            return True
