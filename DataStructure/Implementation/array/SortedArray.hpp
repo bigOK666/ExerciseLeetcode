@@ -91,3 +91,39 @@ public:
         return m_data[index];
     }
 };
+
+void merge(int arr1[], int m, int arr2[], int n, int mergedArr[])
+{
+    int indexArr1 = 0;
+    int indexArr2 = 0;
+    int indexMergedArr = 0;
+
+    while (indexArr1 < m && indexArr2 < n)
+    {
+        if (arr1[indexArr1] < arr2[indexArr2])
+        {
+            mergedArr[indexMergedArr] = arr1[indexArr1];
+            ++indexArr1;
+        }
+        else
+        {
+            mergedArr[indexMergedArr] = arr2[indexArr2];
+            ++indexArr2;
+        }
+        ++indexMergedArr;
+    }
+
+    while (indexArr1 < m)
+    {
+        mergedArr[indexMergedArr] = arr1[indexArr1];
+        ++indexArr1;
+        ++indexMergedArr;
+    }
+
+    while (indexArr2 < n)
+    {
+        mergedArr[indexMergedArr] = arr2[indexArr2];
+        ++indexArr2;
+        ++indexMergedArr;
+    }
+}
