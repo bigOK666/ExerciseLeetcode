@@ -106,6 +106,27 @@ public:
         delete toBeDeleted;
         size--;
     }
+
+    void reverse()
+    {
+        if (head == nullptr || head->next == nullptr)
+        {
+            return;
+        }
+
+        ListNode *prev = nullptr;
+        ListNode *current = head;
+        ListNode *next = nullptr;
+        while (current != nullptr)
+        {
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+
+        head = prev;
+    }
 };
 
 LinkedList::LinkedList() : head(nullptr), size(0)
