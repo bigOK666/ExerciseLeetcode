@@ -140,10 +140,10 @@ LinkedList::~LinkedList()
         return;
     }
 
-    while (head->next != nullptr)
+    while (head != nullptr)
     {
-        ListNode *toBeDeleted = head->next;
-        head->next = toBeDeleted->next;
+        ListNode *toBeDeleted = head;
+        head = head->next;
         delete toBeDeleted;
     }
 
